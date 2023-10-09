@@ -1,9 +1,3 @@
----
-title: DESIGN
-description: DESIGN DOCUMENT FOR KANBAN
-authors: Sarthak Dash, Jayesh Naidu
-date: 9 Ocober, 2023
----
 ## DB Design
 
 ### authors
