@@ -6,7 +6,7 @@
 |-----------|--------------|
 | UUID PKEY | TEXT NOTNULL |
 
-### access_groups (TODO)
+## access_groups (TODO)
 - An access group can have one or more authors.
 - By default, an access group will have one author.
 - If the author grants permission to another author to access a project, a new access group consisting of those 2 author will be created.
