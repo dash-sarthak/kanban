@@ -1,6 +1,6 @@
-## DB Design
+# DB Design
 
-### authors
+## authors
 
 | id        | name         |
 |-----------|--------------|
@@ -13,13 +13,13 @@
 - Each project is assigned to one access_group.
 
 
-### projects
+## projects
 
 | id        | name         | author                        | description | access_group                        |
 |-----------|--------------|-------------------------------|-------------|-------------------------------------|
 | UUID PKEY | TEXT NOTNULL | UUID NOTNULL FKEY authors(id) | TEXT        | UUID NOTNULL FKEY access_groups(id) |
 
-### states
+## states
 
 | id        | name         | project                         | order           |
 |-----------|--------------|---------------------------------|-----------------|
@@ -38,7 +38,7 @@ User can delete existing states, but there needs to be **at least** 2 states in 
 - ADD NEW
 - CHANGE ORDER (TBD)
 
-### components
+## components
 
 | id        | name         | project                        |
 |-----------|--------------|--------------------------------|
@@ -46,12 +46,11 @@ User can delete existing states, but there needs to be **at least** 2 states in 
 
 - Each project can have as many components as possible.
 
-### component_states
+## component_states
 
 | component                        | project                   | state                   |
 |----------------------------------|---------------------------|-------------------------|
 | UUID NOTNULL FKEY components(id) | UUID NOTNULL projects(id) | UUID NOTNULL states(id) |
-|----------------------------------|---------------------------|-------------------------|
 
 PRIMARY KEY (component, project)
 
@@ -61,5 +60,4 @@ PRIMARY KEY (component, project)
 - UPDATE STATE
 - RENAME
 - DELETE
-
 
