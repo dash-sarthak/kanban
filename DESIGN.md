@@ -55,7 +55,7 @@ User can delete existing states, but there needs to be **at least** 2 states in 
 PRIMARY KEY (component, project)
 
 - Each component must be part of a state that is defined for that project
-- Following actions are premissible:
+- Following actions are permissible:
 - CREATE
 - UPDATE STATE
 - RENAME
