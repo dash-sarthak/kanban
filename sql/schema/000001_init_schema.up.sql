@@ -1,22 +1,16 @@
--- A static table for states
-CREATE TABLE states (
-    id SERIAL PRIMARY KEY,
-    state TEXT NOT NULL
-)
--- Static states
-INSERT INTO states (state)
-VALUES
-('todo'),
-('in_progress'),
-('done');
+-- noinspection SqlNoDataSourceInspectionForFile
+
+-- Set Timezone
+SET timezone = 'Asia/Kolkata';
 
 -- Project authors table
 CREATE TABLE authors (
     id UUID PRIMARY KEY,
     name TEXT NOT NULL,
     username TEXT NOT NULL,
-    created_at TIMESTAMP NOT NULL,
-    updated_at TIMESTAMP NOT NULL
+    created_at timestamptz NOT NULL DEFAULT (now()),
+    updated_at timestamptz NOT NULL DEFAULT (now()),
+    UNIQUE(username)
 );
 
 -- Projects table
@@ -25,27 +19,25 @@ CREATE TABLE projects (
     name TEXT NOT NULL,
     author UUID NOT NULL REFERENCES authors(id) ON DELETE CASCADE,
     description TEXT,
-    created_at TIMESTAMP NOT NULL,
-    updated_at TIMESTAMP NOT NULL
+    created_at timestamptz NOT NULL DEFAULT (now()),
+    updated_at timestamptz NOT NULL DEFAULT (now())
 );
 
--- Components table
--- All components across all tables
-CREATE TABLE components (
+-- States table
+CREATE TABLE states (
     id UUID PRIMARY KEY,
     name TEXT NOT NULL,
     project UUID NOT NULL REFERENCES projects(id) ON DELETE CASCADE,
-    created_at TIMESTAMP NOT NULL,
-    updated_at TIMESTAMP NOT NULL
+    created_at timestamptz NOT NULL DEFAULT (now()),
+    updated_at timestamptz NOT NULL DEFAULT (now())
 );
-
--- Component state table
-CREATE TABLE component_states (
-    component UUID NOT NULL REFERENCES components(id) ON DELETE CASCADE,
+-- Components table
+CREATE TABLE components (
+    component UUID NOT NULL PRIMARY KEY,
+    name TEXT NOT NULL,
     project UUID NOT NULL REFERENCES projects(id) ON DELETE CASCADE,
-    state INTEGER REFERENCES states(id) ON DELETE CASCADE,
-    created_at TIMESTAMP NOT NULL,
-    updated_at TIMESTAMP NOT NULL,
-    PRIMARY KEY (component, project)
+    state UUID NOT NULL REFERENCES states(id) ON DELETE CASCADE,
+    created_at timestamptz NOT NULL DEFAULT (now()),
+    updated_at timestamptz NOT NULL DEFAULT (now())
 );
 
