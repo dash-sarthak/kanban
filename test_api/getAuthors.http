@@ -1,0 +1,2 @@
+### Fetch list of authors
+GET http://localhost:8080/v1/authors

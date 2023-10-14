@@ -1,0 +1,10 @@
+### Create author Sarthak Dash (dash_sarthak)
+POST http://localhost:8080/v1/author
+Content-Type: application/json
+
+{
+  "name": "Sarthak Dash",
+  "username": "dash_sarthak"
+}
+
+DE
