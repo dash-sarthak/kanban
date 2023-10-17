@@ -33,7 +33,7 @@ CREATE TABLE states (
 );
 -- Components table
 CREATE TABLE components (
-    component UUID NOT NULL PRIMARY KEY,
+    id UUID NOT NULL PRIMARY KEY,
     name TEXT NOT NULL,
     project UUID NOT NULL REFERENCES projects(id) ON DELETE CASCADE,
     state UUID NOT NULL REFERENCES states(id) ON DELETE CASCADE,
