@@ -35,7 +35,6 @@
     - done
 
 - [ ] User can delete existing states, but there needs to be **at least** 2 states in a project. User will have the option of performing the following actions:
-
     - DELETE (restriction: if there are 2 states, deletion not possible)
     - RENAME
     - ADD NEW
@@ -49,8 +48,8 @@
 | UUID PKEY | TEXT NOTNULL | UUID NOTNULL FKEY projects(id) | UUID NOTNULL states(id) |
 
 
--[ ] Each component must be part of a state that is defined for that project
--[ ] Following actions are permissible:
+- [ ] Each component must be part of a state that is defined for that project
+- [ ] Following actions are permissible:
     - CREATE
     - UPDATE STATE
     - RENAME
