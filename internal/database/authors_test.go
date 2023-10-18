@@ -7,7 +7,7 @@ import (
 	"testing"
 )
 
-func tearDown(username string) error {
+func authorTearDown(username string) error {
 	_, err := testQueries.DeleteAuthor(context.Background(), username)
 	return err
 }
@@ -30,7 +30,7 @@ func TestCreateAuthor(t *testing.T) {
 	require.NotZero(t, author.UpdatedAt)
 
 	// Teardown
-	tdErr := tearDown(args.Username)
+	tdErr := authorTearDown(args.Username)
 	require.NoError(t, tdErr)
 }
 
@@ -49,7 +49,7 @@ func TestDeleteAuthor(t *testing.T) {
 
 	// Teardown
 	if err != nil {
-		tdErr := tearDown(args.Username)
+		tdErr := authorTearDown(args.Username)
 		require.NoError(t, tdErr)
 	}
 }
@@ -78,7 +78,7 @@ func TestCreateAuthorDuplicateUsername(t *testing.T) {
 	require.Error(t, err)
 
 	// Teardown
-	tdErr := tearDown(author1Args.Username)
+	tdErr := authorTearDown(author1Args.Username)
 	require.NoError(t, tdErr)
 
 }
@@ -100,6 +100,6 @@ func TestGetAuthors(t *testing.T) {
 	require.Equal(t, "dash_sarthak", authors[0].Username)
 
 	// Teardown
-	tdErr := tearDown(args.Username)
+	tdErr := authorTearDown(args.Username)
 	require.NoError(t, tdErr)
 }
