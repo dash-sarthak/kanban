@@ -9,3 +9,8 @@ SELECT * FROM projects;
 -- name: GetProjectsByAuthor :many
 SELECT * FROM projects
 WHERE author = $1;
+
+-- name: DeleteProject :one
+DELETE FROM projects
+WHERE id = $1
+RETURNING name, author;
