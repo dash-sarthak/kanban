@@ -21,3 +21,4 @@ go.work
 # Others
 .idea
 script
+node_modules

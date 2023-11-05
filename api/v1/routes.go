@@ -59,8 +59,16 @@ func SetupAndRun() {
 	router := createRouter()
 	v1Router := chi.NewRouter()
 
+	filesDir := http.Dir("./static")
+	fileServer := http.FileServer(filesDir)
+	router.Handle("/static/*", http.StripPrefix("/static", fileServer))
+
+	v1Router.Get("/", apiCfg.handleIndex)
+	v1Router.Get("/home", apiCfg.handleHome)
+	v1Router.Get("/health", apiCfg.handleCheckHealth)
 	v1Router.Post("/author", apiCfg.handleAuthorsCreate)
 	v1Router.Get("/authors", apiCfg.handleAuthorsFetch)
+	v1Router.Post("/project", apiCfg.handleCreateProject)
 
 	router.Mount("/v1", v1Router)
 
@@ -71,3 +79,5 @@ func SetupAndRun() {
 	log.Printf("KanBan is now running on port %v\n", port)
 	log.Fatal(server.ListenAndServe())
 }
+
+// bg-gradient-to-l from-slate-400 from-10% to-slate-500 to-100%

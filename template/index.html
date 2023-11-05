@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <script crossorigin="anonymous"
+            integrity="sha384-FhXw7b6AlE/jyjlZH5iHa/tTe9EpJ1Y55RjcgPbjeWMskSxZt1v9qkxLJWNJaGni"
+            src="https://unpkg.com/htmx.org@1.9.6"></script>
+    <link href="/static/css/output.css" rel="stylesheet">
+</head>
+<body>
+<div class="scaffolding-base flex justify-center items-center h-screen bg-slate-50">
+    <form hx-post="/v1/author" class="w-96 p-6 shadow-lg rounded-md bg-gradient-to-b from-slate-100 from-10% to-slate-200 to-100%">
+        <h1 class="text-3xl font-black text-slate-700">Register</h1>
+        <div class="mt-10">
+            <label class="signup-in block text-xl mt-8 mb-4 text-white" for="name">
+                <input class="rounded-md bg-slate-300 w-full text-base font-medium px-4 py-3 focus:outline-none focus:ring-0 focus:border-gray-60 text-gray-700 placeholder-murky-blue"
+                       id="name"
+                       name="name"
+                       placeholder="John Doe"
+                       type="text"/>
+            </label>
+            <label class="signup-in block text-xl mt-8 mb-4 text-white" for="username">
+                <input class="rounded-md bg-slate-300 w-full text-base font-medium px-4 py-3 focus:outline-none focus:ring-0 focus:border-gray-60 text-gray-700 placeholder-murky-blue"
+                       id="username"
+                       name="username"
+                       placeholder="john_doe69"
+                       type="text"/>
+            </label>
+            <label class="signup-in block text-xl mt-8 mb-4 text-white" for="password">
+                <input class="rounded-md bg-slate-300 w-full text-base font-medium px-4 py-3 focus:outline-none focus:ring-0 focus:border-gray-60 text-gray-700 placeholder-murky-blue"
+                       id="password"
+                       name="password"
+                       placeholder="************"
+                       type="password"/>
+            </label>
+            <div>
+                <button class="border-2 bg-slate-400 text-slate-50 py-2 rounded-md font-bold mt-5 w-full hover:bg-slate-500 transition-colors duration-200"
+                        type="submit">
+                    Create Author
+                </button>
+            </div>
+        </div>
+    </form>
+</div>
+</body>
+</html>

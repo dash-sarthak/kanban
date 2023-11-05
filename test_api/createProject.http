@@ -1,0 +1,9 @@
+### Create author Sarthak Dash (dash_sarthak)
+POST http://localhost:8080/v1/project
+Content-Type: application/json
+
+{
+  "name": "My First Project",
+  "author": "dash_sarthak",
+  "description": "Just a demo project"
+}

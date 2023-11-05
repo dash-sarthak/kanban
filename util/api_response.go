@@ -24,7 +24,7 @@ func RespondWithJSON(w http.ResponseWriter, code int, payload interface{}) {
 
 func RespondWithError(w http.ResponseWriter, code int, message string) {
 	if code > 499 {
-		log.Printf("Responding with a 5XX errhttps://youtu.be/w6KID9kjgYQ?si=co5DCfsPRSd3U1jmor -> %v", message)
+		log.Printf("Responding with a 5XX err -> %v", message)
 	}
 	type errResponse struct {
 		Error string `json:"error"`
